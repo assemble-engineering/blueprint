@@ -16,3 +16,5 @@ export default {
 export const variant1 = () => (
   <ArrayBlueprint array={[1, 'two', { key: 'three' }, true, ['five', 6]]} />
 );
+export const variant2 = () => <ArrayBlueprint array={['two', 'five']} />;
+export const variant3 = () => <ArrayBlueprint array={{ key: 'value' }} />;

@@ -20,7 +20,7 @@ export const variant1 = () => (
       num: 264,
       bool: false,
       arr: ['substring1', 'substring2'],
-      obj: { key: 'value' },
+      obj: { key: 'example value' },
     }}
   />
 );

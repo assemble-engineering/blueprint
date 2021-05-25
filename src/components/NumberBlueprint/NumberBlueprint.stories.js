@@ -14,3 +14,6 @@ export default {
 };
 
 export const variant1 = () => <NumberBlueprint number={235} />;
+export const variant2 = () => <NumberBlueprint number={-235} />;
+export const variant3 = () => <NumberBlueprint number={235.345} />;
+export const variant4 = () => <NumberBlueprint number={'235'} />;

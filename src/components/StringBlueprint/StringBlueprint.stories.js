@@ -14,3 +14,7 @@ export default {
 };
 
 export const variant1 = () => <StringBlueprint string="Test String" />;
+export const variant2 = () => <StringBlueprint string="" />;
+export const variant3 = () => (
+  <StringBlueprint string={['string', 'string2']} />
+);

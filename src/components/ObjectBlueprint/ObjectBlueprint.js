@@ -1,45 +1,46 @@
 import React from 'react';
 import styled from 'styled-components';
 import ArrayBlueprint from '../ArrayBlueprint';
+import BooleanBlueprint from '../BooleanBlueprint';
+import NumberBlueprint from '../NumberBlueprint';
+import StringBlueprint from '../StringBlueprint';
+import { v4 as uuidv4 } from 'uuid';
 
 const StyledObjectBlueprint = styled.div`
-  border-radius: 8px;
-  color: #fff;
-  background: mediumvioletred;
-  padding: 8px 15px;
-  border: none;
-  outline: none;
+  box-sizing: border-box;
+  color: #4a6de5;
+  background: #ced8f7;
+  padding: 20px 30px;
+  border: 1px dashed #002082;
 `;
 
 const ObjectBlueprint = ({ object }) => {
   const renderObject = (obj) => {
     if (!Object.keys(obj).length) return 'No object found';
-    if (typeof obj !== 'object') return 'Must be of type <object>';
+    if (Array.isArray(obj) || typeof obj !== 'object')
+      return 'Must be of type <object>';
+    const output = [];
 
     for (var key in obj) {
       if (obj.hasOwnProperty(key)) {
         if (Array.isArray(obj[key])) {
-          return <ArrayBlueprint array={obj[key]} />;
+          // output.push(<ArrayBlueprint key={uuidv4()} array={obj[key]} />);
         } else if (typeof obj[key] === 'object') {
-          return renderObject(obj[key]);
+          output.push(renderObject(obj[key]));
+        } else if (typeof obj[key] === 'boolean') {
+          output.push(<BooleanBlueprint key={uuidv4()} boolean={obj[key]} />);
+        } else if (typeof obj[key] === 'number') {
+          output.push(<NumberBlueprint key={uuidv4()} number={obj[key]} />);
         } else {
-          return `${key}: ${obj[key]}`;
+          output.push(<StringBlueprint key={uuidv4()} string={obj[key]} />);
         }
       }
     }
+
+    return output;
   };
 
   return <StyledObjectBlueprint>{renderObject(object)}</StyledObjectBlueprint>;
-};
-
-ObjectBlueprint.defaultProps = {
-  object: {
-    str: 'string',
-    num: 264,
-    bool: false,
-    arr: ['substring1', 'substring2'],
-    obj: { key: 'value' },
-  },
 };
 
 export default ObjectBlueprint;

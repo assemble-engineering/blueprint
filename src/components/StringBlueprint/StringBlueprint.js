@@ -2,22 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledStringBlueprint = styled.p`
-	border-radius: 8px;
-	color: #fff;
-	background: mediumvioletred;
-	padding: 8px 15px;
-	border: none;
-	outline: none;
+  box-sizing: border-box;
+  color: #4a6de5;
+  background: #ced8f7;
+  padding: 20px 30px;
+  border: 1px dashed #002082;
 `;
 
 const StringBlueprint = ({ string }) => {
-	const renderString = () => {
-		if (!string.length) return 'No string found';
-		if (typeof string !== 'string') return 'Must be of type <string>';
-		return string;
-	};
+  const renderString = () => {
+    if (!string.length) return 'No string found';
+    if (typeof string !== 'string') return 'Must be of type <string>';
+    return string;
+  };
 
-	return <StyledStringBlueprint>{renderString()}</StyledStringBlueprint>;
+  return <StyledStringBlueprint>{renderString()}</StyledStringBlueprint>;
 };
 
 export default StringBlueprint;
