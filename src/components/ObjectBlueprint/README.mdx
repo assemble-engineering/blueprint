@@ -1,0 +1,26 @@
+---
+name: ObjectBlueprint
+menu: Components
+route: /components/ObjectBlueprint
+---
+
+import ObjectBlueprint from './';
+import { Playground, Props } from 'docz';
+
+# Button
+
+This component renders an HTML `<div>` and passes along all props.
+
+<Props of={ObjectBlueprint} />
+
+## Example Usage
+
+<Playground>
+  <ObjectBlueprint object={{
+      str: 'string',
+      num: 264,
+      bool: false,
+      arr: ['substring1', 'substring2'],
+      obj: { key: 'value' },
+    }} />
+</Playground>
