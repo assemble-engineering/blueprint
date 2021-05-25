@@ -1,6 +1,6 @@
 {
-  "name": "blueprint",
-  "version": "0.0.1",
+  "name": "asm-blueprint",
+  "version": "0.0.2",
   "description": "Blueprint- A core data object React component library.",
   "main": "dist/blueprint.js",
   "repository": {
@@ -15,9 +15,12 @@
   "homepage": "https://github.com/canfie1d/blueprint#readme",
   "scripts": {
     "build": "webpack --mode production",
-    "storybook": "start-storybook -p 9001",
-    "docz:dev": "docz dev",
-    "docz:build": "docz build"
+    "storybook": "start-storybook -p 9001"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 6
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
@@ -27,8 +30,6 @@
     "@storybook/react": "^6.2.9",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
-    "docz": "^2.3.1",
-    "docz-theme-default": "^1.2.0",
     "node-sass": "^6.0.0",
     "sass-loader": "^11.1.1",
     "style-loader": "^2.0.0",
