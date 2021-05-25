@@ -18,3 +18,6 @@ export const variant1 = () => (
 );
 export const variant2 = () => <ArrayBlueprint array={['two', 'five']} />;
 export const variant3 = () => <ArrayBlueprint array={{ key: 'value' }} />;
+export const variant4 = () => <ArrayBlueprint array={[]} />;
+export const variant5 = () => <ArrayBlueprint array={null} />;
+export const variant6 = () => <ArrayBlueprint array={undefined} />;

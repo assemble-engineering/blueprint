@@ -16,15 +16,27 @@ const StyledObjectBlueprint = styled.div`
 
 const ObjectBlueprint = ({ object }) => {
   const renderObject = (obj) => {
-    if (!Object.keys(obj).length) return 'No object found';
-    if (Array.isArray(obj) || typeof obj !== 'object')
+    if (
+      obj === null ||
+      obj === undefined ||
+      typeof obj !== 'object' ||
+      Array.isArray(obj)
+    ) {
       return 'Must be of type <object>';
+    }
+    if (!Object.keys(obj).length) {
+      return 'No object found';
+    }
+
     const output = [];
 
     for (var key in obj) {
       if (obj.hasOwnProperty(key)) {
+        if (obj[key] === null || obj[key] === undefined) {
+          return 'No object found';
+        }
         if (Array.isArray(obj[key])) {
-          // output.push(<ArrayBlueprint key={uuidv4()} array={obj[key]} />);
+          output.push(<ArrayBlueprint key={uuidv4()} array={obj[key]} />);
         } else if (typeof obj[key] === 'object') {
           output.push(renderObject(obj[key]));
         } else if (typeof obj[key] === 'boolean') {

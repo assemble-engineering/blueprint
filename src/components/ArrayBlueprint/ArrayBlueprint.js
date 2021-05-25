@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ObjectBlueprint } from '..';
+import ObjectBlueprint from '../ObjectBlueprint';
 import BooleanBlueprint from '../BooleanBlueprint';
 import NumberBlueprint from '../NumberBlueprint';
 import StringBlueprint from '../StringBlueprint';
@@ -16,8 +16,9 @@ const StyledArrayBlueprint = styled.div`
 
 const ArrayBlueprint = ({ array }) => {
   const renderArray = (arr) => {
-    if (!Array.isArray(arr)) return 'Must be of type <array>';
-    if (!arr.length) return 'No array found';
+    if (arr === null || arr === undefined || !Array.isArray(arr))
+      return 'Must be of type <array>';
+    if (!arr.length) return 'No array data found';
     return arr.map((item, i) => {
       if (Array.isArray(item)) {
         return renderArray(item);

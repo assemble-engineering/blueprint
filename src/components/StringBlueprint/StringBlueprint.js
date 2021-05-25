@@ -11,8 +11,10 @@ const StyledStringBlueprint = styled.p`
 
 const StringBlueprint = ({ string }) => {
   const renderString = () => {
+    if (string === undefined || string === null || typeof string !== 'string') {
+      return 'Must be of type <string>';
+    }
     if (!string.length) return 'No string found';
-    if (typeof string !== 'string') return 'Must be of type <string>';
     return string;
   };
 

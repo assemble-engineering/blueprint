@@ -19,8 +19,15 @@ export const variant1 = () => (
       str: 'string',
       num: 264,
       bool: false,
-      arr: ['substring1', 'substring2'],
+      // arr: ['substring1', 'substring2'],
       obj: { key: 'example value' },
     }}
   />
 );
+
+export const variant2 = () => <ObjectBlueprint object={'not an object'} />;
+export const variant3 = () => (
+  <ObjectBlueprint object={{ arr: ['string', 'string'] }} />
+);
+export const variant4 = () => <ObjectBlueprint object={null} />;
+export const variant5 = () => <ObjectBlueprint object={undefined} />;

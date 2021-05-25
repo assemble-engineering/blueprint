@@ -18,3 +18,5 @@ export const variant2 = () => <StringBlueprint string="" />;
 export const variant3 = () => (
   <StringBlueprint string={['string', 'string2']} />
 );
+export const variant4 = () => <StringBlueprint string={null} />;
+export const variant5 = () => <StringBlueprint string={undefined} />;
