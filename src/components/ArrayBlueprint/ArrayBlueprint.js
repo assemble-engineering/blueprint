@@ -33,6 +33,7 @@ const ArrayBlueprint = ({ array }) => {
       }
     });
   };
+
   return <StyledArrayBlueprint>{renderArray(array)}</StyledArrayBlueprint>;
 };
 

@@ -1,5 +1,7 @@
 const path = require('path');
 const pkg = require('./package.json');
+const TerserPlugin = require('terser-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const libraryName = pkg.name;
 
@@ -8,6 +10,12 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\*.stories.js$/,
+        use: {
+          loader: 'ignore-loader',
+        },
+      },
+      {
         test: /\.js$/,
         use: {
           loader: 'babel-loader',
@@ -15,7 +23,19 @@ module.exports = {
       },
     ],
   },
-  // Here we define explicitly the file types we intend to deal with
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false,
+      }),
+    ],
+  },
+  plugins: [
+    new CopyPlugin({
+      patterns: [{ from: './LICENSE', to: '' }],
+    }),
+  ],
   resolve: {
     extensions: ['.js', '.json'],
     alias: {

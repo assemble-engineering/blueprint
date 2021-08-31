@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ArrayBlueprint from '../ArrayBlueprint';
+import ArrayBlueprint from '../ArrayBlueprint/ArrayBlueprint';
 import BooleanBlueprint from '../BooleanBlueprint';
 import NumberBlueprint from '../NumberBlueprint';
 import StringBlueprint from '../StringBlueprint';
