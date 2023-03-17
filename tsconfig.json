@@ -1,0 +1,19 @@
+{
+  "extends": "@assemble-inc/tsconfig",
+  "compilerOptions": {
+    "skipLibCheck": true
+  },
+  "module": "NodeNext",
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "./node_modules"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
